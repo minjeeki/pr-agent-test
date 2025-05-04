@@ -21,6 +21,11 @@
 
 - [개발 및 배포 가이드](docs/development-and-deployment.md)
 
+## 고급 개념 및 추가 정보
+
+- [고급 개념 및 추가 정보](docs/advanced-concepts.md)
+
 ## 참고 자료
 
 - [요즘 완전 대세! 크롬 확장앱 만들기. 5분컷. - 노마드코더 유튜브](https://www.youtube.com/watch?v=QJSLtK2bY_A&t=372s&ab_channel=%EB%85%B8%EB%A7%88%EB%93%9C%EC%BD%94%EB%8D%94NomadCoders)
+- [크롬 익스텐션 개발기 (feat. Manifest V3) - Manifest V3 내용 확인](https://medium.com/wantedjobs/%ED%81%AC%EB%A1%AC-%EC%9D%B5%EC%8A%A4%ED%85%90%EC%85%98-%EA%B0%9C%EB%B0%9C%EA%B8%B0-feat-manifest-v3-d9120d8de70)
