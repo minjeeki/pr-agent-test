@@ -4,6 +4,86 @@ manifest.json은 크롬 확장 프로그램의 설정 파일로, 브라우저에
 
 - manifest.json 파일을 읽어서 확장 프로그램 목록에서 이름, 버전, 설명, 아이콘을 보여주게 됨
 
+## Manifest 버전 비교
+
+### Manifest V2 vs V3
+
+| 기능                | Manifest V2                                 | Manifest V3                             |
+| ------------------- | ------------------------------------------- | --------------------------------------- |
+| 백그라운드 스크립트 | `background.scripts` 또는 `background.page` | `service_worker` 사용                   |
+| 콘텐츠 보안 정책    | `content_security_policy` 문자열            | `content_security_policy` 객체          |
+| 웹 리소스 접근      | `web_accessible_resources` 배열             | `web_accessible_resources` 객체 배열    |
+| 권한 요청           | `permissions` 배열                          | `permissions`와 `host_permissions` 분리 |
+| 네트워크 요청       | `webRequest` API 자유로운 사용              | `declarativeNetRequest` API 권장        |
+| 리모트 코드         | 원격 코드 실행 가능                         | 로컬 코드만 허용                        |
+| 메모리 사용         | 지속적인 백그라운드 프로세스                | 이벤트 기반 서비스 워커                 |
+
+### 주요 변경사항
+
+1. **백그라운드 스크립트**
+
+   - V2: 지속적으로 실행되는 백그라운드 페이지
+   - V3: 이벤트 기반 서비스 워커로 변경
+
+   ```json
+   // V2
+   "background": {
+     "scripts": ["background.js"],
+     "persistent": true
+   }
+
+   // V3
+   "background": {
+     "service_worker": "background.js"
+   }
+   ```
+
+2. **콘텐츠 보안 정책**
+
+   - V2: 단일 문자열로 정의
+   - V3: 확장 페이지와 샌드박스에 대해 별도로 정의
+
+   ```json
+   // V2
+   "content_security_policy": "script-src 'self'; object-src 'self'"
+
+   // V3
+   "content_security_policy": {
+     "extension_pages": "script-src 'self'; object-src 'self'",
+     "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals"
+   }
+   ```
+
+3. **웹 리소스 접근**
+
+   - V2: 단순 리소스 목록
+   - V3: 도메인 기반 접근 제어
+
+   ```json
+   // V2
+   "web_accessible_resources": ["images/*", "fonts/*"]
+
+   // V3
+   "web_accessible_resources": [{
+     "resources": ["images/*", "fonts/*"],
+     "matches": ["https://*.example.com/*"]
+   }]
+   ```
+
+4. **권한 관리**
+
+   - V2: 모든 권한을 `permissions` 배열에 포함
+   - V3: 호스트 권한을 `host_permissions`로 분리
+
+   ```json
+   // V2
+   "permissions": ["storage", "tabs", "https://*.example.com/*"]
+
+   // V3
+   "permissions": ["storage", "tabs"],
+   "host_permissions": ["https://*.example.com/*"]
+   ```
+
 ## 주요 기능
 
 ### 확장 프로그램의 메타데이터 정의 (이름, 버전, 설명 등)
