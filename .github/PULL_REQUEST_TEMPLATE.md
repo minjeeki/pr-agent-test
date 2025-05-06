@@ -1,8 +1,14 @@
 ## 📌 PR 제목 (Title & Type)
 
+pr_agent:type
+
 ## ✅ PR 요약 (Description)
 
+pr_agent:summary
+
 ## 🔍 주요 변경 사항 (Change)
+
+pr_agnet:walkthrough
 
 ## 📋 PR 전 체크해야 하는 것들 (Checklist)
 
