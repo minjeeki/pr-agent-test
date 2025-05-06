@@ -4,8 +4,6 @@
 
 ## 🔍 주요 변경 사항 (Change)
 
-## 📒
-
 ## 📋 PR 전 체크해야 하는 것들 (Checklist)
 
 - [ ] PR 제목이 명확하고 일관된 규칙을 따르고 있나요? (Fix:, Feat:, Refactor: 등)
