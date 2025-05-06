@@ -2,6 +2,6 @@
 response_language = "ko-KR"
 
 [pr_description]
-use_description_markers = true  # ✅ 요게 핵심 (이 줄만 있으면 됨)
+use_description_markers = true
 add_original_user_description = true
 publish_description_as_comment = false
