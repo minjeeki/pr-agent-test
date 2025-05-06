@@ -1,3 +1,6 @@
+[github_app]
+pr_commands = ["/describe"]
+
 [config]
 response_language = "ko-KR"
 
