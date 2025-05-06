@@ -8,7 +8,7 @@ pr_agent:summary
 
 ## 🔍 주요 변경 사항 (Change)
 
-pr_agnet:walkthrough
+pr_agent:walkthrough
 
 ## 📋 PR 전 체크해야 하는 것들 (Checklist)
 
